@@ -1,22 +1,34 @@
-var a = +prompt('input a');
-var b = +prompt('inpun b');
-var h= 1;
+
 var factorial = 1;
 var sum=1;
 
+do {
+    var a = +prompt('input a');
+    var b = +prompt('inpun b');
+    
+ flag = isNaN(a) && isNaN(b);
+  if (flag) {
+       alert('invalid , try again!');
+        }
+     } while(flag);
+
 
 if (a<b){
-    for(i=a;i<=b;i++)
+    for(j=1, i=a;i<=b;i++, j++)
     { 
         factorial*=i;
         sum+=factorial;
-        h += h;
+       // h += h;
        
-        console.log('h:',h ,'number',  i);
+        console.log('h:',j ,'number',  i);
 
     }
     
    console.log('Factorial sum ,' , sum);
     
-}else{alert('a should be < b');
+}else{
+    alert('a should be < b');
+    //a = +prompt('input a');
+   // b = +prompt('inpun b');
+
 }
