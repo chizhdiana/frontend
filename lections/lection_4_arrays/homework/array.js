@@ -65,19 +65,19 @@ console.log('Min', min);
 // Task 2
 //Элементы массива между min -- max записать в массив B. Массив взять из 1го задания
 
-
+//var D= [];
 for (i = 0; i < A.length; i++) {
-
+    D = A.slice(min, max);
 
     if (A[i] >= min && A[i] <= max) {
 
         console.log('fgg' + min, max);
 
-        B.push(A[i]);
+
 
     } else if (A[i] >= max && A[i] <= min) {
 
-        B.push(A[i]);
+        D = A.slice(max, min);
 
     }
 
@@ -85,7 +85,7 @@ for (i = 0; i < A.length; i++) {
 
 
 }
-console.log('Apdated ', B);
+console.log('Apdated ', D);
 
 
 
@@ -144,6 +144,76 @@ for (i = 0; i < arr.length; i++) {
 }
 
 console.log('count', count);
+
+
+//Создать массивы А и В. Заполнить случайными числами. Найди все элементы которые повторяются в массивах А и Б. * Повторяющиеся элементы вырезать. (без использования splice)
+
+A = [];
+B = [];
+A.length = 10;
+B.length = 10;
+
+current = 0;
+m = 20;
+n = 10;
+for (i = 0; i < A.length; i++) {
+    A[i] = Math.floor(Math.random() * (m - n)) + n;
+
+}
+A.sort();
+
+
+for (i = 0, j = i + 1; i < A.length, j < A.length; i++ , j++) {
+
+    if (A[i] == A[j]) {
+        console.log('delete', A[i]);
+        delete A[i];
+
+
+    }
+
+    A.length--;
+
+}
+
+
+for (i = 0; i < B.length; i++) {
+    B[i] = Math.floor(Math.random() * (m - n)) + n;
+
+}
+
+
+for (i = 0, j = i + 1; i < B.length, j < B.length; i++ , j++) {
+
+    if (B[i] == B[j]) {
+        console.log('delete', B[i]);
+        delete B[i];
+
+
+
+    }
+    B.length--;
+
+}
+console.log('A', A);
+console.log('B', B);
+
+
+for (i = 0; i < A.length; i++) {
+
+    for (j = 0; j < B.length; j++) {
+
+        if (A[i] == B[j]) {
+            delete A[i];
+            delete B[j];
+
+        }
+
+    }
+
+}
+console.log('sorted A', A);
+console.log('sorted B', B);
 
 
 
