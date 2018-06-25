@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Task 1
 //В одномерном массиве произвести такую замену: 
 //1 элемент поменять с 2 3 элемент поменять с 4 5 элемент поменять с 6 и тд Если массив непарный - последний элемент не трогать.
@@ -29,10 +30,19 @@ if (arr.lenght % 2 != 1) {
         arr[i] = arr[i + 1];
         arr[i + 1] = temp;
     }
+=======
+arr =[];
+arr.lenght = 10;
+m=200;
+n= 20;
+for(i=0; i<arr.lenght; i++){
+    arr[i] = Math.floor(Math.random()*(m-n)+n);
+>>>>>>> 37f93a4cf5a0ad7791e61f7f840ae44fc7abceba
 
 }
 console.log('arr', arr)
 
+<<<<<<< HEAD
 
 // Task 2
 // двумерном массиве A размером n на m. Заполнить случайными числами.
@@ -114,3 +124,13 @@ console.log('min на позиции max', min);
 
 
 
+=======
+for(i=0; i< arr.lenght; i+=2){
+   
+ 
+    temp =  arr[i];
+    arr[i] = arr[i+1];
+    arr[i+1] = temp;
+} 
+console.log('arr', arr)
+>>>>>>> 37f93a4cf5a0ad7791e61f7f840ae44fc7abceba
