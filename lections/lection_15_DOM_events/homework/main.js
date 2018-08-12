@@ -1,23 +1,23 @@
 window.onload = function () {
   var block = document.querySelector('.block');
 
-  var h = 20;
+  var h = 40;
   var step = 40;
-  var left, top;
+  var position;
 
+ 
   function onclick(event) {
-    console.log(event.type, event)
+    console.log('click',event.type, event);
+    position = block.getBoundingClientRect();
+    
   }
 
   function keydown(event) {
     const keyName = event.key;
 
     if (event.keyCode == 0 || event.keyCode == 32) {
-      console.log('keydown event\n\n' + 'key: ' + keyName);
-
-
-      block.style.left = block.getBoundingClientRect().left - h + 'px';
-      block.style.top = block.getBoundingClientRect().top - h + 'px';;
+      block.style.top = block.getBoundingClientRect().top - h + 'px';
+      
 
     }
   }
@@ -27,12 +27,13 @@ window.onload = function () {
     const keyName = event.key;
 
     if (event.keyCode == 0 || event.keyCode == 32) {
-      console.log('keydown event\n\n' + 'key: ' + keyName);
+     
+      block.style.top = position.top  ;
+      block.style.left = position.left;
+      block.style.right = position.right;
+      block.style.bottom = position.bottom;
 
-
-      block.style.left = block.getBoundingClientRect().left + h + 'px';
-      block.style.top = block.getBoundingClientRect().top + h + 'px';;
-
+  
     } else if (event.keyCode == 17) {
       block.style.height = block.style.height  -40 + 'px';
       block.style.width = block.style.width + 15 + 'px';
@@ -40,18 +41,19 @@ window.onload = function () {
     }
 
     else if (event.keyCode == 37) { //left
-      block.style.left = block.getBoundingClientRect().left -step + 'px';
+      console.log('keyup event\n\n' + 'key: ' + keyName);
+      block.style.left = block.getBoundingClientRect().left - step + 'px';
 
     }
     else if (event.keyCode == 38) {// top
       block.style.top = block.getBoundingClientRect().top - step + 'px';
     }
     else if (event.keyCode == 39) {// right
-      block.style.left = block.getBoundingClientRect().left +step + 'px';
+      block.style.left = block.getBoundingClientRect().right +step + 'px';
 
-    }
+2    } 
     else if (event.keyCode == 40) {// bottom
-      block.style.top = block.getBoundingClientRect().top + step + 'px';
+      block.style.top = block.getBoundingClientRect().bottom + step + 'px';
 
 
     }
