@@ -5,29 +5,62 @@ var characters = [
     { 'name': 'fred', 'age': 40 }
 ];
 
-
-function pluck(obj, key){
-    
-    this.obj = obj;
-    this.key = key;
-   arr = [];
-    for(i =0 ; i < this.obj.length; i++){
-        debugger;
-        for(this.j in this.obj[i]){
-        
-            if(this.j  == this.key){
-               // console.log(  key);
-               console.log( this.obj[i][j]);
-               arr.push(this.obj[i][j]);
-
+function pluck(key) {
+    var arr = [];
+    for (i = 0; i < this.length; i++) {
+        for (var j in this[i]) {
+            if (j == key) {
+                arr.push(this[i][j]);
             }
-          
-           
-        }    
-       
+        }
     }
     return arr;
+}
+
+var res = pluck.call(characters, 'name');
+
+
+
+
+var input = [1, 2, 3, 4, 5, 6];
+
+function isEven(x) {
+    if (x % 2 == 0) {
+        return true;
+    }
+    return false
+};
+
+function filter(arr, f) {
+    var res = [];
+    for (var i = 0; i < arr.length; i++) {
+        // debugger
+        if (f(i) == true) {
+            res.push(i);
+        }
+    }
+    return res;
 
 }
-var res = pluck.call(characters , 'name')
-console.log(res);;
+
+var filterRes = filter(input, isEven);
+
+function Obj(name, age, adress) {
+    this.name = name;
+    this.age = age;
+    this.adress = adress;
+}
+
+Obj.prototype.count = function () {
+    var values = 0;
+    for (var i in this) {
+     values++;
+    }
+    return values;
+}
+var Person = new Obj('name', 'adge', 'adress')
+
+Person.count();
+
+
+
