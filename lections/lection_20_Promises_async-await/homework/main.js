@@ -50,7 +50,8 @@ Promise.all(listPomise)
 
 
 function runAfter() {
-    // console.log(arguments, arguments)
+ console.log(arguments, arguments)
+ // arguments is all functions do it
 
     var funk;
     for (i in arguments) {
@@ -60,30 +61,28 @@ function runAfter() {
 
     for (j = 0; j < funk.length; j++) {
         var f = funk[j]
-    
+        console.log('function', f)
+
         return function (values) {
-           // var values = arguments
-          //  return f(values)
-        for (k = 0; k < values.length; k++) {
-              
-                var result = f(values[k])
-                console.log('res',result)
-
-
-            }
+            console.log('values',f(values))
+            return f(values);
         }
-
+        
+    }
     }
 
-    }
+    
 
 
 
 
 function doIt(values) {
-    console.log('doIt', values);
+    for(var i= 0; i<values.length;i++){
+        console.log('doIt111', values[i]);
+        this.values = values[i] + 1;
 
-    this.values = values + 1;
+    }
+
     return this
 
 }
@@ -110,7 +109,7 @@ function setTimer(resolve, reject) {
 
         var local = Math.floor(Math.random() * 100) + 1
         if (local <= 100) {
-            console.log('local', local)
+           // console.log('local', local)
             resolve(local);
         }
 
